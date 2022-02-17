@@ -1,5 +1,5 @@
 %% No 1
-img_paths = ["img/baboon.tif", "img/aerial.tif", "img/strawberries.tif", "img/caster_stand.tif"];
+img_paths = ["img/baboon.tif", "img/aerial.tif", "img/strawberries.tif", "img/caster_stand.tif", "img/bird.tif", "img/peppers.tif"];
 for i = 1:length(img_paths)
     I = imread(img_paths(i));
     [~,~,channel] = size(I);
@@ -32,7 +32,7 @@ subplot(2, 2, 4);
 imhist(img_contrast);
 
 %% No 3
-img_paths = ["img/Picture2.png", "img/aerial.tif", "img/bridge.tif", "img/office.tif"];
+img_paths = ["img/Picture2.png", "img/aerial.tif", "img/bridge.tif", "img/office.tif", "img/einstein.tif", "img/city.tif"];
 for i = 1:length(img_paths)
     I = imread(img_paths(i));
     J = chisteq(I);
@@ -95,8 +95,12 @@ function img = chisteq(image)
     for k = 1:channel
         h = chist(image(:,:,k));
         n = sum(h);
+
+        cfreq = 0;
         for i = 1:256
-            heq(i) = floor(sum(h(1:i)) / n * 255);
+            cfreq = cfreq + h(i);
+            cdf = cfreq / n;
+            heq(i) = round(cdf * 255);
         end
 
         for i = 1:row
