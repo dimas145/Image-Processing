@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1325758049" file="D:\Tugas\IF4073 Interpretasi dan Pengolahan Citra\Image-Processing\ImageProcessingApp.prj" location="D:\Tugas\IF4073 Interpretasi dan Pengolahan Citra\Image-Processing" name="ImageProcessingApp" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="2503469542" file="D:\Tugas\IF4073 Interpretasi dan Pengolahan Citra\Image-Processing\ImageProcessingApp.prj" location="D:\Tugas\IF4073 Interpretasi dan Pengolahan Citra\Image-Processing" name="ImageProcessingApp" target="target.mlapps" target-name="Package App">
     <param.appname>ImageProcessingApp</param.appname>
     <param.authnamewatermark />
     <param.email />
@@ -15,7 +15,7 @@
     <param.products.version />
     <param.platforms />
     <param.output>${PROJECT_ROOT}</param.output>
-    <param.guid>89d3e4ae-7379-473d-9768-1d614490eddb</param.guid>
+    <param.guid>caa47b05-057f-41e9-8764-234d16d51c85</param.guid>
     <unset>
       <param.authnamewatermark />
       <param.email />
@@ -42,6 +42,8 @@
       <file>${PROJECT_ROOT}\hist_specification.m</file>
       <file>${PROJECT_ROOT}\HistGrayWindow.mlapp</file>
       <file>${PROJECT_ROOT}\HistMatchingWindow.mlapp</file>
+      <file>${PROJECT_ROOT}\HistOneGrayWindow.mlapp</file>
+      <file>${PROJECT_ROOT}\HistOneRGBWindow.mlapp</file>
       <file>${PROJECT_ROOT}\HistRefGrayWindow.mlapp</file>
       <file>${PROJECT_ROOT}\HistRefRGBWindow.mlapp</file>
       <file>${PROJECT_ROOT}\HistRGBWindow.mlapp</file>
