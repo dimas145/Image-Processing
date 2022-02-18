@@ -1,78 +1,79 @@
 %% No 1
-img_paths = ["img/baboon.tif", "img/aerial.tif", "img/strawberries.tif", "img/caster_stand.tif", "img/bird.tif", "img/peppers.tif"];
-for i = 1:length(img_paths)
-    I = imread(img_paths(i));
-    [~,~,channel] = size(I);
-    figure,
-    subplot(2,channel+1,1), imshow(I);
-    subplot(2,channel+1,channel+2), imshow(I);
-
-    for j = 1:channel
-        [counts, binloc] = chist(I(:,:,j));
-        subplot(2,channel+1,1+j), bar(binloc, counts);
-        subplot(2,channel+1,channel+2+j), imhist(I(:,:,j));
-    end
-end
+% img_paths = ["img/baboon.tif", "img/aerial.tif", "img/strawberries.tif", "img/caster_stand.tif", "img/bird.tif", "img/peppers.tif"];
+% for i = 1:length(img_paths)
+%     I = imread(img_paths(i));
+%     [~,~,channel] = size(I);
+%     figure,
+%     subplot(2,channel+1,1), imshow(I);
+%     subplot(2,channel+1,channel+2), imshow(I);
+% 
+%     for j = 1:channel
+%         [counts, binloc] = chist(I(:,:,j));
+%         subplot(2,channel+1,1+j), bar(binloc, counts);
+%         subplot(2,channel+1,channel+2+j), imhist(I(:,:,j));
+%     end
+% 
+% end
 
 %% No 2
-figure,
-img_path = "img/Picture2.png";
-
-img = imread(img_path);
-subplot(2, 2, 1);
-imshow(img);
-subplot(2, 2, 2);
-imhist(img);
-
-img_contrast = contrast_stretching(img_path);
-subplot(2, 2, 3);
-imshow(img_contrast);
-subplot(2, 2, 4);
-imhist(img_contrast);
+% figure,
+% img_path = "img/Picture2.png";
+% 
+% img = imread(img_path);
+% subplot(2, 2, 1);
+% imshow(img);
+% subplot(2, 2, 2);
+% imhist(img);
+% 
+% img_contrast = contrast_stretching(img_path);
+% subplot(2, 2, 3);
+% imshow(img_contrast);
+% subplot(2, 2, 4);
+% imhist(img_contrast);
 
 %% No 3
-img_paths = ["img/Picture2.png", "img/aerial.tif", "img/bridge.tif", "img/office.tif", "img/einstein.tif", "img/city.tif"];
-for i = 1:length(img_paths)
-    I = imread(img_paths(i));
-    J = chisteq(I);
-    K = histeq(I);
-
-    [~,~,channel] = size(I);
-    figure,
-    subplot(3,channel+1,1), imshow(I);
-    subplot(3,channel+1,channel+2), imshow(J);
-    subplot(3,channel+1,channel*2+3), imshow(K);
-
-    for j = 1:channel
-        [counts, binloc] = chist(I(:,:,j));
-        subplot(3,channel+1,1+j), bar(binloc, counts);
-        [counts, binloc] = chist(J(:,:,j));
-        subplot(3,channel+1,channel+2+j), bar(binloc, counts);
-        [counts, binloc] = chist(K(:,:,j));
-        subplot(3,channel+1,channel*2+3+j), bar(binloc, counts);
-    end
-end
+% img_paths = ["img/Picture2.png", "img/aerial.tif", "img/bridge.tif", "img/office.tif", "img/einstein.tif", "img/city.tif"];
+% for i = 1:length(img_paths)
+%     I = imread(img_paths(i));
+%     J = chisteq(I);
+%     K = histeq(I);
+% 
+%     [~,~,channel] = size(I);
+%     figure,
+%     subplot(3,channel+1,1), imshow(I);
+%     subplot(3,channel+1,channel+2), imshow(J);
+%     subplot(3,channel+1,channel*2+3), imshow(K);
+% 
+%     for j = 1:channel
+%         [counts, binloc] = chist(I(:,:,j));
+%         subplot(3,channel+1,1+j), bar(binloc, counts);
+%         [counts, binloc] = chist(J(:,:,j));
+%         subplot(3,channel+1,channel+2+j), bar(binloc, counts);
+%         [counts, binloc] = chist(K(:,:,j));
+%         subplot(3,channel+1,channel*2+3+j), bar(binloc, counts);
+%     end
+% end
 
 %% No 4
-img_path = "img/Picture6.png";
-img_ref_path = "img/Picture5.png";
+img_path = "img/Picture5.png";
+img_ref_path = "img/Picture6.png";
 
 img = imread(img_path);
-img_ref = imread(img_ref_path);
+img_ref = imread(img_path);
 img_specified = hist_specification(img_path, img_ref_path);
 
 [~,~,channel] = size(img);
 figure,
 subplot(3,channel+1,1), imshow(img);
-subplot(3,channel+1,channel+2), imshow(img_ref);
-subplot(3,channel+1,channel*2+3), imshow(img_specified);
+subplot(3,channel+1,channel+2), imshow(img_specified);
+subplot(3,channel+1,channel*2+3), imshow(K);
 
 for j = 1:channel
     [counts, binloc] = chist(img(:,:,j));
     subplot(3,channel+1,1+j), bar(binloc, counts);
-    [counts, binloc] = chist(img_ref(:,:,j));
-    subplot(3,channel+1,channel+2+j), bar(binloc, counts);
     [counts, binloc] = chist(img_specified(:,:,j));
+    subplot(3,channel+1,channel+2+j), bar(binloc, counts);
+    [counts, binloc] = chist(K(:,:,j));
     subplot(3,channel+1,channel*2+3+j), bar(binloc, counts);
 end
 
